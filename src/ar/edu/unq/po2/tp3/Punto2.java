@@ -4,7 +4,6 @@ public class Punto2 {
 	public static void main(String[] args) {
 		String a = "abc";
 		String s = a;
-		String t;
 
 		System.out.println(s.length());
 		// System.out.println(t.length()); T no fue inicializada
