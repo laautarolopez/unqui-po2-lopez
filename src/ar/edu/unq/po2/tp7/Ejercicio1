@@ -1,0 +1,12 @@
+a. ¿Dónde se define el esqueleto del algoritmo? 
+El esqueleto del algoritmo se define en la clase madre.
+
+b. ¿Se puede redefinir el esqueleto?
+El esqueleto no se puede redefinir en las clases herederas, sino se rompe el patrón.
+
+c. ¿Qué es lo que se puede redefinir?
+Se pueden redefinir todos los métodos que se comporten distinto en cada clase. Pueden ser primitivos o no.
+
+d. ¿Qué es un hook method?
+Un hook method es un método vacío dentro de la clase madre, ya que es una función que no todas las clases hijas la tienen.
+Por lo tanto, sólo las clases hijas que lo usan, lo redefinen en su cuerpo.
