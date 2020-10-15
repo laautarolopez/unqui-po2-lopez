@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp7;
+package ar.edu.unq.po2.tp7.Sueldo;
 
 public class EmpleadoPasante extends Empleado {
 	private int horasTrabajadas;

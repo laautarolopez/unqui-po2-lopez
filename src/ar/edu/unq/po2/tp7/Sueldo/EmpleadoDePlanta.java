@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp7;
+package ar.edu.unq.po2.tp7.Sueldo;
 
 public class EmpleadoDePlanta extends Empleado {
 	private float sueldoBasico = 3000;
