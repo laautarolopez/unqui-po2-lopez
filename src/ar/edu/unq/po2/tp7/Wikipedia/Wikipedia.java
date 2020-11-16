@@ -30,4 +30,8 @@ public class Wikipedia implements WikipediaPage {
 	public void setLinks(List<WikipediaPage> links) {
 		this.links = links;
 	}
+	
+	public void setInfoBox(Map<String, WikipediaPage> infoBox) {
+		this.infoBox = infoBox;
+	}
 }

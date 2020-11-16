@@ -1,17 +1,20 @@
 package ar.edu.unq.po2.tp7.Wikipedia;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class PropiedadEnComunTest {
 	private PropiedadEnComun filtro;
-	private Wikipedia berazategui;
 	private List<WikipediaPage> wikipedia;
+	private Wikipedia berazategui;
 	private Wikipedia quilmes;
 	private Wikipedia bernal;
 	private Wikipedia balcarce;
@@ -40,27 +43,39 @@ public class PropiedadEnComunTest {
 		linksBernal = Arrays.asList(quilmes);
 		linksBalcarce = Arrays.asList(buenosAires);
 		linksBuenosAires = Arrays.asList(berazategui, quilmes, bernal, balcarce);
-		wikipedia = Arrays.asList(berazategui, quilmes, bernal, balcarce, buenosAires);
 		berazategui.setLinks(linksBerazategui);
 		quilmes.setLinks(linksQuilmes);
 		bernal.setLinks(linksBernal);
 		balcarce.setLinks(linksBalcarce);
 		buenosAires.setLinks(linksBuenosAires);
-		this.construirMap(mapBerazategui,
-			 Arrays.asList(("place", berazategui)));
-		this.construirMap(mapQuilmes);
-		this.construirMap(mapBernal);
-		this.construirMap(mapBalcarce);
-		this.construirMap(mapBuenosAires);
-	}
-	
-	public void construirMap(Map<String, WikipediaPage> m, 
-							 List<(String, WikipediaPage)> lista) {
-		
+		mapBerazategui.put("birth_place", buenosAires);
+		mapBerazategui.put("team", berazategui);
+		mapQuilmes.put("team", quilmes);
+		mapBernal.put("birth_place", quilmes);
+		mapBalcarce.put("provincia", buenosAires);
+		mapBuenosAires.put("pais", null);
+		berazategui.setInfoBox(mapBerazategui);
+		quilmes.setInfoBox(mapQuilmes);
+		bernal.setInfoBox(mapBernal);
+		balcarce.setInfoBox(mapBalcarce);
+		buenosAires.setInfoBox(mapBuenosAires);
+		wikipedia = Arrays.asList(berazategui, quilmes, bernal, balcarce, buenosAires);
 	}
 	
 	@Test
-	public void test() {
-		
+	public void testBernal() {
+		List<WikipediaPage> similares = filtro.getSimilarPages(bernal, wikipedia);
+		assertEquals(2, similares.size());
+		assertTrue(similares.contains(bernal)); //birth_place
+		assertTrue(similares.contains(berazategui)); //birth_place
+	}
+	
+	@Test
+	public void testBerazategui() {
+		List<WikipediaPage> similares = filtro.getSimilarPages(berazategui, wikipedia);
+		assertEquals(3, similares.size());
+		assertTrue(similares.contains(berazategui)); //birth_place, team
+		assertTrue(similares.contains(bernal)); //birth_place
+		assertTrue(similares.contains(quilmes)); //team
 	}
 }
