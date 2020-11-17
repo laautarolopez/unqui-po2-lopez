@@ -9,16 +9,28 @@ public abstract class LlamadaTelefonica {
 		this.horaDelDia=horaDelDia;
 	}
 	
+	/**
+	 * Operación concreta: operación que es de utilidad en las subclases.
+	 */
 	public int getTiempo(){
 		return this.tiempo;
 	}
 	
+	/**
+	 * Operación concreta: operación que es de utilidad en las subclases.
+	 */
 	public int getHoraDelDia(){
 		return this.horaDelDia;
 	}
 	
+	/**
+	 * Operación primitiva: método abstracto.
+	 */
 	public abstract boolean esHoraPico();
 	
+	/**
+	 * Es el esqueleto del template method, sin embargo le falta el "final".
+	 */
 	public float costoFinal(){
 		if(this.esHoraPico()){
 			return this.costoNeto()*1.2f*this.getTiempo();
@@ -27,7 +39,10 @@ public abstract class LlamadaTelefonica {
 		}
 	}
 	
-	public float costoNeto(){
+	/**
+	 * Es un método Hook, ya que las subclases redefinen el método con su propio comportamiento.
+	 */
+	public float costoNeto(){   
 		return this.getTiempo()*1;
 	}
 }
