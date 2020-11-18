@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ListaDePalabrasOrdenadas {
-	private List<String>palabras;
+	private List<String> palabras;
 	private final Comparator comparador;
 	
 	public ListaDePalabrasOrdenadas(){
@@ -22,7 +22,7 @@ public class ListaDePalabrasOrdenadas {
 	}
 	
 	public void agregarPalabra(String palabra){
-	this.palabras.add(palabra);
+		this.palabras.add(palabra);
 		Collections.sort(this.palabras, this.comparador);
 	}
 	
