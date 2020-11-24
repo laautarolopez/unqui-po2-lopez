@@ -1,0 +1,28 @@
+2- ¿Cómo se indica en mockito que el objeto mock debe recibir un secuencia de mensajes particular en un orden
+preestablecido? Agregue un ejemplo.
+
+En mockito se puede verificar una secuencia de mensajes particulares con el mensaje
+verify(objetoMock).mensajeQueRecibe(parametros)
+
+Ejemplo: La clase Máquina tiene un método que envía 5 cartas al azar usándo el método de
+PokerStatus(verificar).
+Por lo tanto, se usaría:
+
+Maquina maquina = mock(Maquina.class);
+verify(maquina).verificar(carta1, carta2, carta3, carta4, carta5);
+
+1- ¿Qué son los test doubles?
+Los test doubles son test que se hacen pasar por doble de riesgo,
+que hace referencia a cualquier caso en el que se reemplaza un objeto de producción
+con otro con el único objetivo de probar el código.
+
+2- Enumere los tipos de test doubles y de ejemplos concretos de uso. Indique como usaría, cuando es posible,
+mockito para emular los diferentes tipos de tipos de test doubles.
+
+- Test dummy, se utiliza para instanciar una clase poniéndo los parámetros manualmente.
+- Test Stub se utilizan para controlar la ejecución de los inputs indirectos. Hay 2 tipos:
+los responder que hardcodean un método para devolver lo que nosotros quisieramos y los saboteur, 
+que hardcodean un método pero a diferencia de poner un valor específico, retornan una excepción.
+- Test Spy, se utilizan para obtener un loggeo de los mensajes llamados. Es decir, sabremos la hora,
+cuantas contadores de llamados tuvo el log, etc.
+- Mock Object, en pocas palabras sintetiza todos los anteriores test en 1.
