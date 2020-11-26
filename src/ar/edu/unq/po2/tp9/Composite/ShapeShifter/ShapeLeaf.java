@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeLeaf implements IShapeShifter {
+	// Leaf(hoja)
 	private int num;
 	
 	public ShapeLeaf(int numero) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeComp implements IShapeShifter {
+	// Compositer
 	private List<IShapeShifter> shapes = new ArrayList<IShapeShifter>();
 	
 	public ShapeComp(List<IShapeShifter> shapes) {
@@ -18,9 +19,9 @@ public class ShapeComp implements IShapeShifter {
 	}
 	
 	public int deepest() {
-		int resultado = 0;
+		int resultado = 1;
 		for (IShapeShifter s : shapes) {
-			resultado += 1 + s.deepest();
+			resultado += s.deepest();
 		}
 		return resultado;
 	}
