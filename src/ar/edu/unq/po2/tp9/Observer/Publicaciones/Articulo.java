@@ -1,9 +1,8 @@
 package ar.edu.unq.po2.tp9.Observer.Publicaciones;
 
 import java.util.List;
-import java.util.Observable;
+import ar.edu.unq.po2.tp9.Observer.Observable;
 
-@SuppressWarnings("deprecation")
 public class Articulo extends Observable {
 	private String titulo;
 	private List<String> autores;
