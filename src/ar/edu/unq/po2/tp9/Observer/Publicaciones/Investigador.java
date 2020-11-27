@@ -4,28 +4,19 @@ import ar.edu.unq.po2.tp9.Observer.Observable;
 import ar.edu.unq.po2.tp9.Observer.Observer;
 
 public class Investigador implements Observer {
-	private String nombre;
-	private Observable articulo;
+	private Observable observable;
 	
-	public Investigador(String nombre) {
-		this.nombre = nombre;
+	public Investigador(Observable observable) {
+		this.observable = observable;
+		observable.addObserver(this);
 	}
 	
-	public String getNombre() {
-		return this.nombre;
-	}
-	
-	public Observable getArticulo() {
-		return this.articulo;
+	public Observable getObservable() {
+		return this.observable;
 	}
 	
 	@Override
 	public void update(Object param) {
-		System.out.println("Ingreso una nueva publicacion de: " + param);
-	}
-	
-	public void suscribirse(Articulo articulo) {
-		this.articulo = articulo;
-		articulo.addObserver(this);
+		System.out.println("Ingreso una nueva publicacion de: " + this.observable.toString());
 	}
 }

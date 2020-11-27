@@ -9,6 +9,6 @@ public class SistemaDeReferencias {
 	public void cargarArticulo(Articulo articulo) {
 		this.articulos.add(articulo);
 		articulo.setChanged();
-		articulo.notifyObservers(articulo.getTitulo());
+		articulo.notifyObservers(articulo);
 	}
 }
