@@ -44,10 +44,4 @@ public class Articulo extends Observable {
 	public List<String> getPalabrasClave() {
 		return palabrasClave;
 	}
-	
-	@Override
-	public String toString() {
-		return("Título: " + this.titulo + "\n"
-			   "");
-	}
 }

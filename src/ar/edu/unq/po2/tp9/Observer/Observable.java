@@ -12,7 +12,9 @@ public class Observable {
 	}
 	
 	public void deleteObserver(Observer o) {
-		this.obs.remove(o);
+		if(this.obs.contains(o)) {
+			this.obs.remove(o);
+		}
 	}
 	
 	public int countObservers() {

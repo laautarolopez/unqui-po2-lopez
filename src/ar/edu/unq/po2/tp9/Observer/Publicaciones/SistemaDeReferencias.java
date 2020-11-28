@@ -9,6 +9,10 @@ public class SistemaDeReferencias {
 	public void cargarArticulo(Articulo articulo) {
 		this.articulos.add(articulo);
 		articulo.setChanged();
-		articulo.notifyObservers(articulo);
+		articulo.notifyObservers("Nueva publicacion");
 	}
-}
+	
+	public boolean contiene(Articulo articulo) {
+		return this.articulos.contains(articulo);
+	}
+} 
