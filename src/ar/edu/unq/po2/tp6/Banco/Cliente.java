@@ -20,7 +20,7 @@ public class Cliente {
 		return this.sueldoNetoMensual * 12;
 	}
 	
-	public void solicitarCredito(Float monto) {
-		
+	public void solicitarCredito(SolicitudDeCredito solicitud, Banco banco) {
+		banco.evaluarSolicitud(solicitud);
 	}
 }
